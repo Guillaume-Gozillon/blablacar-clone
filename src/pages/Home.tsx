@@ -1,17 +1,10 @@
-// import { Button } from "@mui/material";
-// import { Link } from "react-router-dom";
-import { Button } from "../stories/Button";
+import { NavButton } from "../stories/NavButton";
 
 const Home = () => {
   return (
     <>
       <h1>Home Page</h1>
-      <Button
-        label="Go to About"
-        primary
-        //  component={Link}
-        // to="/"
-      />
+      <NavButton label="À propos" primary to="/about" />
     </>
   );
 };

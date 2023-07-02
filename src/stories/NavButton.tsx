@@ -1,6 +1,6 @@
 import "./button.css";
-// import { Link } from "react-router-dom";
-interface ButtonProps {
+import { Link } from "react-router-dom";
+interface NavButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
@@ -18,6 +18,10 @@ interface ButtonProps {
    */
   label: string;
   /**
+   * Navigation redirect
+   */
+  to: string;
+  /**
    * Optional click handler
    */
   onClick?: () => void;
@@ -26,27 +30,29 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
+export const NavButton = ({
   primary = false,
   size = "medium",
   backgroundColor,
   label,
+  to,
   ...props
-}: ButtonProps) => {
+}: NavButtonProps) => {
   const mode = primary
     ? "storybook-button--primary"
     : "storybook-button--secondary";
   return (
-    <button
-      // component={Link}
-      type="button"
-      className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " "
-      )}
-      style={{ backgroundColor }}
-      {...props}
-    >
-      {label}
-    </button>
+    <Link to={to}>
+      <button
+        type="button"
+        className={["storybook-button", `storybook-button--${size}`, mode].join(
+          " "
+        )}
+        style={{ backgroundColor }}
+        {...props}
+      >
+        {label}
+      </button>
+    </Link>
   );
 };

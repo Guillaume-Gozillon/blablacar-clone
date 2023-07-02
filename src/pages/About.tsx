@@ -1,13 +1,10 @@
-import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { NavButton } from "../stories/NavButton";
 
 const About = () => {
   return (
     <>
       <h1>ABOUT Page</h1>
-      <Button component={Link} to="/" variant="contained" color="primary">
-        Go to HOME
-      </Button>
+      <NavButton label="Revenir à l'accueil" primary to="/" />
     </>
   );
 };
